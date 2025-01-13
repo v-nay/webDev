@@ -22,6 +22,7 @@ Route::group(['namespace' => 'System', 'prefix' => PREFIX, 'middleware' => ['lan
     Route::post('/set-password', 'Auth\ResetPasswordController@handleSetResetPassword');
     Route::get('/', 'Auth\LoginController@showLoginForm');
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+    
 
     Route::group(['middleware' => ['auth', 'antitwofa']], function () {
         Route::get('/login/verify', 'Auth\VerificationController@showVerifyPage');
@@ -68,5 +69,11 @@ Route::group(['namespace' => 'System', 'prefix' => PREFIX, 'middleware' => ['lan
 
         Route::get('/mail-test/create', 'MailTestController@create');
         Route::post('/mail-test', 'MailTestController@sendEmail');
+        Route::get('/search-motels', 'google\GoogleController@searchMotels');
+        Route::get('/search-motels-by-suburb', 'google\GoogleController@searchAllMotels');
+        
+
+        
     });
+
 });
