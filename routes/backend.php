@@ -68,7 +68,6 @@ Route::group(['namespace' => 'System', 'prefix' => PREFIX, 'middleware' => ['lan
 
         Route::get('/mail-test/create', 'MailTestController@create');
         Route::post('/mail-test', 'MailTestController@sendEmail');
-        Route::get('/search-motels', 'google\GoogleController@searchMotels');
-        Route::get('/search-motels-by-suburb', 'google\GoogleController@searchAllMotels');
+        Route::resource('/headings', 'heading\HeadingController', ['except' => ['show']]);
     });
 });

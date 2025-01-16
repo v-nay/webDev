@@ -17,6 +17,7 @@ $configBaseUrl = '/configs';
 $categoriesBaseUrl = '/categories';
 $profileBaseUrl = '/profile';
 $mailtestBaseUrl = '/mail-test';
+$headingBaseUrl = '/headings';
 
 return  [
     // routes entered in this array are accessible by any user no matter what role is given
@@ -332,6 +333,55 @@ return  [
                     'name' => 'Delete Category',
                     'route' => [
                         'url' => $categoriesBaseUrl.'/*',
+                        'method' => $deleteMethod,
+                    ],
+                ],
+            ],
+        ],
+        [
+            'name' => 'Heading Management',
+            'icon' => "<i class='fa fa-list'></i>",
+            'hasSubmodules' => false,
+            'route' => $headingBaseUrl,
+            'permissions' => [
+                [
+                    'name' => 'View Heading',
+                    'route' => [
+                        'url' => $headingBaseUrl,
+                        'method' => $getMethod,
+                    ],
+                ],
+                [
+                    'name' => 'Create Heading',
+                    'route' => [
+                        [
+                            'url' => $headingBaseUrl.'/create',
+                            'method' => $getMethod,
+                        ],
+                        [
+                            'url' => $headingBaseUrl,
+                            'method' => $postMethod,
+                        ],
+
+                    ],
+                ],
+                [
+                    'name' => 'Edit Heading',
+                    'route' => [
+                        [
+                            'url' => $headingBaseUrl.'/*/edit',
+                            'method' => $getMethod,
+                        ],
+                        [
+                            'url' => $headingBaseUrl.'/*',
+                            'method' => $putMethod,
+                        ],
+                    ],
+                ],
+                [
+                    'name' => 'Delete Heading',
+                    'route' => [
+                        'url' => $headingBaseUrl.'/*',
                         'method' => $deleteMethod,
                     ],
                 ],

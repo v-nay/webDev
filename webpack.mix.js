@@ -17,7 +17,7 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.js('resources/asset/system/js/system.js', 'public/compiledCssAndJs/js/')
     .sass('resources/asset/system/styles/system.scss', 'public/compiledCssAndJs/css')
-    .options({
+    .options({ 
         processCssUrls: false,
     });
 
