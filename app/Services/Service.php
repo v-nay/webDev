@@ -33,7 +33,7 @@ class Service
         if ($pagination) {
             return $query->orderBy('id', 'DESC')->paginate(Config::get('constants.PAGINATION'));
         } else {
-            return $query->orderBy('id', 'DESC')->get();
+            return $query->orderBy('id', 'DESC')->get();    
         }
     }
 

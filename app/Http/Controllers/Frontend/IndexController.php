@@ -14,8 +14,9 @@ class IndexController extends Controller
 
     public function getAll()
     {
-        $headings = Heading::all();
-        return view('frontend.index', compact('headings'));
+        // $headings = Heading::orderBy('id', 'ASC')->get();
+
+        return view('frontend.index');
     }
     public function menuPage()
     {
