@@ -12,15 +12,15 @@ function authUser()
 
 function setRoleCache($user)
 {
-    return Cache::put('role-'.$user->id, $user->role);
+    return Cache::put('role-' . $user->id, $user->role);
 }
 function getRoleCache($user)
 {
-    return Cache::get('role-'.$user->id);
+    return Cache::get('role-' . $user->id);
 }
 function clearRoleCache($user)
 {
-    return Cache::forget('role-'.$user->id);
+    return Cache::forget('role-' . $user->id);
 }
 function frontendUser()
 {
@@ -73,9 +73,21 @@ function globalLanguages()
 
 function setConfigCookie()
 {
-    Cookie::queue('title', conf::where('label', 'cms title')->first()->value, 10000);
-    Cookie::queue('logo', conf::where('label', 'cms logo')->first()->value, 10000);
-    Cookie::queue('color', conf::where('label', 'cms theme color')->first()->value, 10000);
+    Cookie::queue(
+        'title',
+        conf::where('label', 'cms title')->first()->value,
+        10000
+    );
+    Cookie::queue(
+        'logo',
+        conf::where('label', 'cms logo')->first()->value,
+        10000
+    );
+    Cookie::queue(
+        'color',
+        conf::where('label', 'cms theme color')->first()->value,
+        10000
+    );
 }
 
 function localDatetime($dateTime)
@@ -93,7 +105,7 @@ function storeLog($performedOn, $msg)
     $now = Carbon::now()->format('Y-m-d H:i:s');
     activity()
         ->performedOn($performedOn)
-        ->log($msg.' at '.$now);
+        ->log($msg . ' at ' . $now);
 }
 
 function logMessage($modelName, $modelId, $eventName)
@@ -107,7 +119,10 @@ function logMessage($modelName, $modelId, $eventName)
 function pageIndex($items)
 {
     $sn = 0;
-    if (method_exists($items, 'perPage') && method_exists($items, 'currentPage')) {
+    if (
+        method_exists($items, 'perPage') &&
+        method_exists($items, 'currentPage')
+    ) {
         $sn = $items->perPage() * ($items->currentPage() - 1);
     }
 

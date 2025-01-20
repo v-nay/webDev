@@ -51,9 +51,9 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
-            "app/Helper/Ekcms/permissionHelper.php",
-            "app/Helper/Ekcms/globalHelper.php",
-            "app/Helper/Ekcms/translationHelper.php"
+            "app/Helper/KOI/permissionHelper.php",
+            "app/Helper/KOI/globalHelper.php",
+            "app/Helper/KOI/translationHelper.php"
         ]
     },
     "autoload-dev": {

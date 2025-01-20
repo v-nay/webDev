@@ -4,11 +4,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="msapplication-TileColor" content="#ffffff">
-<link href="{{ asset('images/eklogo.png') }}" rel="shortcut icon">
+<!-- <link href="{{ asset('images/eklogo.png') }}" rel="shortcut icon"> -->
 <meta name="theme-color" content="#ffffff">
 <meta name="csrf" content="{{csrf_token()}}">
 
-<title>{{ translate($title) ?? 'EkCms' }}</title>
+<title>{{ translate($title) ?? 'KOI' }}</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
