@@ -2,33 +2,36 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
+use App\Model\Contact;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ContactController extends Controller
 {
-    public function __construct(CategoryService $categoryService)
+    public function __construct()
     {
-        parent::__construct($categoryService);
     }
 
-    public function storeValidationRequest()
+    public function store(Request $request)
     {
-        return 'App\Http\Requests\system\categoryRequest';
-    }
+        $validated = $request->validate(
+            [
+                'name' => 'required|string|max:255',
+                'email' => 'required|email|max:255',
+                'phone' => 'nullable|string|max:10',
+                'message' => 'required|string|max:255',
+            ],
+            [
+                'name.required' => 'The name field is required.',
+                'email.required' => 'The email field is required.',
+                'phone.required' => 'The phone field is required.',
+                'message.required' => 'The message field cannot be empty.',
+                'phone.max' => 'The phone number cannot exceed 10 digits.',
+            ]
+        );
 
-    public function updateValidationRequest()
-    {
-        return 'App\Http\Requests\system\categoryRequest';
-    }
+        Contact::create($validated);
 
-    public function moduleName()
-    {
-        return 'categories';
-    }
-
-    public function viewFolder()
-    {
-        return 'system.category';
+        return back()->with('success', 'Message sent successfully!');
     }
 }

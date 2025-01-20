@@ -14,12 +14,12 @@ $languagesBaseUrl = '/languages';
 $translationBaseUrl = '/translations';
 $emailTemplateBaseUrl = '/email-templates';
 $configBaseUrl = '/configs';
-$categoriesBaseUrl = '/categories';
+$contactsBaseUrl = '/contacts';
 $profileBaseUrl = '/profile';
 $mailtestBaseUrl = '/mail-test';
 $headingBaseUrl = '/headings';
 
-return  [
+return [
     // routes entered in this array are accessible by any user no matter what role is given
     'permissionGrantedbyDefaultRoutes' => [
         [
@@ -43,7 +43,7 @@ return  [
             'method' => $getMethod,
         ],
         [
-            'url' => $profileBaseUrl.'/*',
+            'url' => $profileBaseUrl . '/*',
             'method' => $putMethod,
         ],
         [
@@ -85,7 +85,7 @@ return  [
                             'name' => 'Create Users',
                             'route' => [
                                 [
-                                    'url' => $userBaseUrl.'/create',
+                                    'url' => $userBaseUrl . '/create',
                                     'method' => $getMethod,
                                 ],
                                 [
@@ -98,11 +98,11 @@ return  [
                             'name' => 'Edit Users',
                             'route' => [
                                 [
-                                    'url' => $userBaseUrl.'/*/edit',
+                                    'url' => $userBaseUrl . '/*/edit',
                                     'method' => $getMethod,
                                 ],
                                 [
-                                    'url' => $userBaseUrl.'/*',
+                                    'url' => $userBaseUrl . '/*',
                                     'method' => $putMethod,
                                 ],
                             ],
@@ -110,14 +110,14 @@ return  [
                         [
                             'name' => 'Delete Users',
                             'route' => [
-                                'url' => $userBaseUrl.'/*',
+                                'url' => $userBaseUrl . '/*',
                                 'method' => $deleteMethod,
                             ],
                         ],
                         [
                             'name' => 'Reset Password',
                             'route' => [
-                                'url' => $userBaseUrl.'/reset-password/*',
+                                'url' => $userBaseUrl . '/reset-password/*',
                                 'method' => $postMethod,
                             ],
                         ],
@@ -140,7 +140,7 @@ return  [
                             'name' => 'Create Roles',
                             'route' => [
                                 [
-                                    'url' => $roleBaseUrl.'/create',
+                                    'url' => $roleBaseUrl . '/create',
                                     'method' => $getMethod,
                                 ],
                                 [
@@ -153,11 +153,11 @@ return  [
                             'name' => 'Edit Roles',
                             'route' => [
                                 [
-                                    'url' => $roleBaseUrl.'/*/edit',
+                                    'url' => $roleBaseUrl . '/*/edit',
                                     'method' => $getMethod,
                                 ],
                                 [
-                                    'url' => $roleBaseUrl.'/*',
+                                    'url' => $roleBaseUrl . '/*',
                                     'method' => $putMethod,
                                 ],
                             ],
@@ -165,7 +165,7 @@ return  [
                         [
                             'name' => 'Delete Roles',
                             'route' => [
-                                'url' => $roleBaseUrl.'/*',
+                                'url' => $roleBaseUrl . '/*',
                                 'method' => $deleteMethod,
                             ],
                         ],
@@ -218,7 +218,8 @@ return  [
             'submodules' => [
                 [
                     'name' => 'Email Templates',
-                    'icon' => "<i class='fa fa-envelope' aria-hidden='true'></i>",
+                    'icon' =>
+                        "<i class='fa fa-envelope' aria-hidden='true'></i>",
                     'route' => $emailTemplateBaseUrl,
                     'hasSubmodules' => false,
                     'permissions' => [
@@ -233,11 +234,11 @@ return  [
                             'name' => 'Edit Email Templates',
                             'route' => [
                                 [
-                                    'url' => $emailTemplateBaseUrl.'/*/edit',
+                                    'url' => $emailTemplateBaseUrl . '/*/edit',
                                     'method' => $getMethod,
                                 ],
                                 [
-                                    'url' => $emailTemplateBaseUrl.'/*',
+                                    'url' => $emailTemplateBaseUrl . '/*',
                                     'method' => $putMethod,
                                 ],
                             ],
@@ -245,7 +246,7 @@ return  [
                         [
                             'name' => 'Delete Email Templates',
                             'route' => [
-                                'url' => $emailTemplateBaseUrl.'/*',
+                                'url' => $emailTemplateBaseUrl . '/*',
                                 'method' => $deleteMethod,
                             ],
                         ],
@@ -274,14 +275,14 @@ return  [
                         [
                             'name' => 'Edit Config',
                             'route' => [
-                                'url' => $configBaseUrl.'/*',
+                                'url' => $configBaseUrl . '/*',
                                 'method' => $putMethod,
                             ],
                         ],
                         [
                             'name' => 'Delete Config',
                             'route' => [
-                                'url' => $configBaseUrl.'/*',
+                                'url' => $configBaseUrl . '/*',
                                 'method' => $deleteMethod,
                             ],
                         ],
@@ -290,49 +291,48 @@ return  [
             ],
         ],
         [
-            'name' => 'Category Management',
+            'name' => 'Contact Management',
             'icon' => "<i class='fa fa-list'></i>",
             'hasSubmodules' => false,
-            'route' => $categoriesBaseUrl,
+            'route' => $contactsBaseUrl,
             'permissions' => [
                 [
-                    'name' => 'View Category',
+                    'name' => 'View Contact',
                     'route' => [
-                        'url' => $categoriesBaseUrl,
+                        'url' => $contactsBaseUrl,
                         'method' => $getMethod,
                     ],
                 ],
                 [
-                    'name' => 'Create Category',
+                    'name' => 'Create Contact',
                     'route' => [
                         [
-                            'url' => $categoriesBaseUrl.'/create',
+                            'url' => $contactsBaseUrl . '/create',
                             'method' => $getMethod,
                         ],
                         [
-                            'url' => $categoriesBaseUrl,
+                            'url' => $contactsBaseUrl,
                             'method' => $postMethod,
                         ],
-
                     ],
                 ],
                 [
-                    'name' => 'Edit Category',
+                    'name' => 'Edit Contact',
                     'route' => [
                         [
-                            'url' => $categoriesBaseUrl.'/*/edit',
+                            'url' => $contactsBaseUrl . '/*/edit',
                             'method' => $getMethod,
                         ],
                         [
-                            'url' => $categoriesBaseUrl.'/*',
+                            'url' => $contactsBaseUrl . '/*',
                             'method' => $putMethod,
                         ],
                     ],
                 ],
                 [
-                    'name' => 'Delete Category',
+                    'name' => 'Delete Contact',
                     'route' => [
-                        'url' => $categoriesBaseUrl.'/*',
+                        'url' => $contactsBaseUrl . '/*',
                         'method' => $deleteMethod,
                     ],
                 ],
@@ -355,25 +355,24 @@ return  [
                     'name' => 'Create Heading',
                     'route' => [
                         [
-                            'url' => $headingBaseUrl.'/create',
+                            'url' => $headingBaseUrl . '/create',
                             'method' => $getMethod,
                         ],
                         [
                             'url' => $headingBaseUrl,
                             'method' => $postMethod,
                         ],
-
                     ],
                 ],
                 [
                     'name' => 'Edit Heading',
                     'route' => [
                         [
-                            'url' => $headingBaseUrl.'/*/edit',
+                            'url' => $headingBaseUrl . '/*/edit',
                             'method' => $getMethod,
                         ],
                         [
-                            'url' => $headingBaseUrl.'/*',
+                            'url' => $headingBaseUrl . '/*',
                             'method' => $putMethod,
                         ],
                     ],
@@ -381,12 +380,11 @@ return  [
                 [
                     'name' => 'Delete Heading',
                     'route' => [
-                        'url' => $headingBaseUrl.'/*',
+                        'url' => $headingBaseUrl . '/*',
                         'method' => $deleteMethod,
                     ],
                 ],
             ],
         ],
-
     ],
 ];

@@ -6,13 +6,16 @@
     </x-slot>
 </x-system.search-form>
 @endsection
+@section('create')
+@endsection
 
 @section('table-heading')
 <tr>
     <th scope="col">{{translate('S.N')}}</th>
     <th scope="col">{{translate('Name')}}</th>
-    <th scope="col">{{translate('Action')}}</th>
-    
+    <th scope="col">{{translate('Email')}}</th>
+    <th scope="col">{{translate('Phone')}}</th>
+    <th scope="col">{{translate('Message')}}</th>
 </tr>
 @endsection
 
@@ -22,11 +25,9 @@
 <tr>
     <td>{{SN($pageIndex, $key)}}</td>
     <td>{{ $item->name }}</td>
-   
-    <td>
-        <!-- @include('system.partials.editButton') -->
-        @include('system.partials.deleteButton')
-    </td>
+    <td>{{ $item->email }}</td>
+    <td>{{ $item->phone }}</td>
+    <td>{{ $item->message }}</td>
 </tr>
 @endforeach
 @endsection

@@ -16,15 +16,19 @@
       <!-- Form Section -->
       <section class="contact-form">
         <h2>Get In Touch</h2>
-        <form id="contact-form" method="POST" action="{{url('/contact')}}">
+        <form id="contact-form" method="POST" action="{{url('/contacts')}}">
+          @csrf
           <label for="name">Name</label>
           <input
             type="text"
             id="name"
             name="name"
             placeholder="Enter your name"
-            required
+            value="{{ old('name') }}" 
           />
+          @if ($errors->has('name'))
+        <small class="text-danger" style="color:red">{{ $errors->first('name') }}</small>
+    @endif
 
           <label for="email">Email</label>
           <input
@@ -32,8 +36,11 @@
             id="email"
             name="email"
             placeholder="Enter your email"
-            required
+            value="{{ old('email') }}" 
           />
+          @if ($errors->has('email'))
+        <small class="text-danger" style="color:red">{{ $errors->first('email') }}</small>
+    @endif
 
           <label for="phone">Phone</label>
           <input
@@ -41,19 +48,30 @@
             id="phone"
             name="phone"
             placeholder="Enter your phone number"
-            required
+            value="{{ old('phone') }}" 
           />
+          @if ($errors->has('phone'))
+        <small class="text-danger" style="color:red">{{ $errors->first('phone') }}</small>
+    @endif
 
           <label for="message">Message</label>
           <textarea
             id="message"
             name="message"
             placeholder="Your message..."
-            required
+            value="{{ old('message') }}" 
           ></textarea>
+          @if ($errors->has('message'))
+        <small class="text-danger" style="color:red">{{ $errors->first('message') }}</small>
+    @endif
 
           <button type="submit" class="btn">Send Message</button>
         </form>
+        @if (session('success'))
+    <div class="alert alert-success mt-3">
+        {{ session('success') }}
+    </div>
+@endif
       </section>
 
       <!-- Map Section -->

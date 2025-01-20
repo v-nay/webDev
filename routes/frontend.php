@@ -8,4 +8,4 @@ Route::get('/menu', 'Frontend\IndexController@menuPage');
 Route::get('/reservation', 'Frontend\IndexController@reservationPage');
 Route::get('/specials', 'Frontend\IndexController@specialPage');
 
-Route::resource('/contacts', 'Frontend\ContactController');
+Route::post('/contacts', 'Frontend\ContactController@store');
