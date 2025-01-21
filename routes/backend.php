@@ -22,22 +22,22 @@ Route::group(
             'login.form'
         );
         Route::post('/login', 'Auth\LoginController@login')->name('login');
-        Route::get(
-            'forgot-password',
-            'Auth\ForgotPasswordController@showRequestForm'
-        )->name('forgot.password');
-        Route::post(
-            'forgot-password',
-            'Auth\ForgotPasswordController@handleForgotPassword'
-        )->name('post.forgot.password');
-        Route::get(
-            '/reset-password/{email}/{token}',
-            'Auth\ResetPasswordController@showSetResetForm'
-        )->name('reset.password');
-        Route::post(
-            '/reset-password',
-            'Auth\ResetPasswordController@handleSetResetPassword'
-        );
+        // Route::get(
+        //     'forgot-password',
+        //     'Auth\ForgotPasswordController@showRequestForm'
+        // )->name('forgot.password');
+        // Route::post(
+        //     'forgot-password',
+        //     'Auth\ForgotPasswordController@handleForgotPassword'
+        // )->name('post.forgot.password');
+        // Route::get(
+        //     '/reset-password/{email}/{token}',
+        //     'Auth\ResetPasswordController@showSetResetForm'
+        // )->name('reset.password');
+        // Route::post(
+        //     '/reset-password',
+        //     'Auth\ResetPasswordController@handleSetResetPassword'
+        // );
         Route::get(
             '/set-password/{email}/{token}',
             'Auth\ResetPasswordController@showSetResetForm'
@@ -88,13 +88,13 @@ Route::group(
                 );
                 Route::put('/profile/{id}', 'profile\ProfileController@update');
 
-                Route::post(
-                    'users/reset-password/{id}',
-                    'user\UserController@passwordReset'
-                )->name('user.reset-password');
+                // Route::post(
+                //     'users/reset-password/{id}',
+                //     'user\UserController@passwordReset'
+                // )->name('user.reset-password');
 
-                Route::get('/login-logs', 'logs\LoginLogsController@index');
-                Route::get('/activity-logs', 'logs\LogsController@index');
+                // Route::get('/login-logs', 'logs\LoginLogsController@index');
+                // Route::get('/activity-logs', 'logs\LogsController@index');
 
                 Route::resource('/languages', 'language\LanguageController', [
                     'except' => ['show', 'edit', 'update'],
@@ -126,11 +126,11 @@ Route::group(
                     'language\TranslationController@uploadExcel'
                 );
 
-                Route::resource(
-                    '/email-templates',
-                    'systemConfig\EmailTemplateController',
-                    ['except' => ['show', 'create', 'store']]
-                );
+                // Route::resource(
+                //     '/email-templates',
+                //     'systemConfig\EmailTemplateController',
+                //     ['except' => ['show', 'create', 'store']]
+                // );
 
                 Route::resource('/configs', 'systemConfig\ConfigController');
 
@@ -145,8 +145,8 @@ Route::group(
                     LanguageLine::truncate();
                 });
 
-                Route::get('/mail-test/create', 'MailTestController@create');
-                Route::post('/mail-test', 'MailTestController@sendEmail');
+                // Route::get('/mail-test/create', 'MailTestController@create');
+                // Route::post('/mail-test', 'MailTestController@sendEmail');
                 Route::resource('/headings', 'heading\HeadingController', [
                     'except' => ['show'],
                 ]);
