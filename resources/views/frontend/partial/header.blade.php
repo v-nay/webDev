@@ -1,7 +1,7 @@
   <!-- Navigation Bar-->
   <header class="navbar">
     <div class="logo">
-        <a href="index.html">Gourmet Delights Bistro</a>
+        <a href="{{url('/')}}">Gourmet Delights Bistro</a>
     </div>
     @include('frontend.partial.nav')
       <!-- Hamburger Icon -->

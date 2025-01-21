@@ -9,3 +9,4 @@ Route::get('/reservation', 'Frontend\IndexController@reservationPage');
 Route::get('/specials', 'Frontend\IndexController@specialPage');
 
 Route::post('/contacts', 'Frontend\ContactController@store');
+Route::post('/reservations', 'Frontend\ReservationController@store');

@@ -18,6 +18,7 @@ $contactsBaseUrl = '/contacts';
 $profileBaseUrl = '/profile';
 $mailtestBaseUrl = '/mail-test';
 $headingBaseUrl = '/headings';
+$reservationBaseUrl = '/reservations';
 
 return [
     // routes entered in this array are accessible by any user no matter what role is given
@@ -381,6 +382,54 @@ return [
                     'name' => 'Delete Heading',
                     'route' => [
                         'url' => $headingBaseUrl . '/*',
+                        'method' => $deleteMethod,
+                    ],
+                ],
+            ],
+        ],
+        [
+            'name' => 'Reservation Management',
+            'icon' => "<i class='fa fa-list'></i>",
+            'hasSubmodules' => false,
+            'route' => $reservationBaseUrl,
+            'permissions' => [
+                [
+                    'name' => 'View Reservation',
+                    'route' => [
+                        'url' => $reservationBaseUrl,
+                        'method' => $getMethod,
+                    ],
+                ],
+                [
+                    'name' => 'Create Reservation',
+                    'route' => [
+                        [
+                            'url' => $reservationBaseUrl . '/create',
+                            'method' => $getMethod,
+                        ],
+                        [
+                            'url' => $reservationBaseUrl,
+                            'method' => $postMethod,
+                        ],
+                    ],
+                ],
+                [
+                    'name' => 'Edit Reservation',
+                    'route' => [
+                        [
+                            'url' => $reservationBaseUrl . '/*/edit',
+                            'method' => $getMethod,
+                        ],
+                        [
+                            'url' => $reservationBaseUrl . '/*',
+                            'method' => $putMethod,
+                        ],
+                    ],
+                ],
+                [
+                    'name' => 'Delete Reservation',
+                    'route' => [
+                        'url' => $reservationBaseUrl . '/*',
                         'method' => $deleteMethod,
                     ],
                 ],

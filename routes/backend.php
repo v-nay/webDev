@@ -153,6 +153,9 @@ Route::group(
                 Route::resource('/contacts', 'contact\ContactController', [
                     'except' => ['show'],
                 ]);
+                Route::resource('/reservations', 'reservation\ReservationController', [
+                    'except' => ['show'],
+                ]);
             }
         );
     }
