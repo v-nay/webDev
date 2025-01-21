@@ -20,6 +20,17 @@ trait ImageTrait
 
         return $fileName;
     }
+    public function uploadImages($dir, $input)
+    {
+        $directory = public_path() . $dir;
+        if (is_dir($directory) != true) {
+            \File::makeDirectory($directory, $mode = 0755, true);
+        }
+        $fileName = uniqid() . '.' . $input->getClientOriginalExtension();
+        $image = Image::make($input);
+        $image->save($directory . '/' . $fileName, 100);
+        return $fileName;
+    }
 
     public function removeImage($dir, $image)
     {

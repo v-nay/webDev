@@ -28,13 +28,11 @@
             <p class="invalid-text text-danger">{{translate($message)}}</p>
             @enderror
           </div>
-          <h2>{{translate('You are current using IP')}} - <strong>{{Request::ip()}}</strong></h2>
+          
           <div class="form-group">
             <button type="submit" class="btn login-btn btn-block" style="background-color:{{getCmsConfig('cms theme color')}}">{{translate('Login')}}</button>
           </div>
-          <div class="form-group text-center">
-            <a href="{{route('forgot.password')}}">{{translate('Forgot Password ?')}}</a>
-          </div>
+         
         </form>
       </div><!-- ends login-form -->
     </div><!-- ends login-sec -->

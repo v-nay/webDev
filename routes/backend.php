@@ -156,6 +156,12 @@ Route::group(
                 Route::resource('/reservations', 'reservation\ReservationController', [
                     'except' => ['show'],
                 ]);
+                Route::resource('/offerings', 'offering\OfferingController', [
+                    'except' => ['show'],
+                ]);
+                Route::resource('/specials', 'special\SpecialController', [
+                    'except' => ['show'],
+                ]);
             }
         );
     }

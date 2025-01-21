@@ -19,6 +19,8 @@ $profileBaseUrl = '/profile';
 $mailtestBaseUrl = '/mail-test';
 $headingBaseUrl = '/headings';
 $reservationBaseUrl = '/reservations';
+$offeringBaseUrl = '/offerings';
+$specialBaseUrl ="/specials";
 
 return [
     // routes entered in this array are accessible by any user no matter what role is given
@@ -222,7 +224,7 @@ return [
         ],
         [
             'name' => 'Contact Management',
-            'icon' => "<i class='fa fa-list'></i>",
+            'icon' => "<i class='fa fa-address-book'></i>",
             'hasSubmodules' => false,
             'route' => $contactsBaseUrl,
             'permissions' => [
@@ -270,7 +272,7 @@ return [
         ],
         [
             'name' => 'Heading Management',
-            'icon' => "<i class='fa fa-list'></i>",
+            'icon' => "<i class='fa fa-header'></i>",
             'hasSubmodules' => false,
             'route' => $headingBaseUrl,
             'permissions' => [
@@ -318,7 +320,7 @@ return [
         ],
         [
             'name' => 'Reservation Management',
-            'icon' => "<i class='fa fa-list'></i>",
+            'icon' => "<i class='fa fa-hotel'></i>",
             'hasSubmodules' => false,
             'route' => $reservationBaseUrl,
             'permissions' => [
@@ -359,6 +361,102 @@ return [
                     'name' => 'Delete Reservation',
                     'route' => [
                         'url' => $reservationBaseUrl . '/*',
+                        'method' => $deleteMethod,
+                    ],
+                ],
+            ],
+        ],
+        [
+            'name' => 'Offering Management',
+            'icon' => "<i class='fa fa-suitcase'></i>",
+            'hasSubmodules' => false,
+            'route' => $offeringBaseUrl,
+            'permissions' => [
+                [
+                    'name' => 'View Offering',
+                    'route' => [
+                        'url' => $offeringBaseUrl,
+                        'method' => $getMethod,
+                    ],
+                ],
+                [
+                    'name' => 'Create Offering',
+                    'route' => [
+                        [
+                            'url' => $offeringBaseUrl . '/create',
+                            'method' => $getMethod,
+                        ],
+                        [
+                            'url' => $offeringBaseUrl,
+                            'method' => $postMethod,
+                        ],
+                    ],
+                ],
+                [
+                    'name' => 'Edit Offering',
+                    'route' => [
+                        [
+                            'url' => $offeringBaseUrl . '/*/edit',
+                            'method' => $getMethod,
+                        ],
+                        [
+                            'url' => $offeringBaseUrl . '/*',
+                            'method' => $putMethod,
+                        ],
+                    ],
+                ],
+                [
+                    'name' => 'Delete Offering',
+                    'route' => [
+                        'url' => $offeringBaseUrl . '/*',
+                        'method' => $deleteMethod,
+                    ],
+                ],
+            ],
+        ],
+        [
+            'name' => 'Special Management',
+            'icon' => "<i class=' fa fa-cutlery'></i>",
+            'hasSubmodules' => false,
+            'route' => $specialBaseUrl,
+            'permissions' => [
+                [
+                    'name' => 'View Special',
+                    'route' => [
+                        'url' => $specialBaseUrl,
+                        'method' => $getMethod,
+                    ],
+                ],
+                [
+                    'name' => 'Create Special',
+                    'route' => [
+                        [
+                            'url' => $specialBaseUrl . '/create',
+                            'method' => $getMethod,
+                        ],
+                        [
+                            'url' => $specialBaseUrl,
+                            'method' => $postMethod,
+                        ],
+                    ],
+                ],
+                [
+                    'name' => 'Edit Special',
+                    'route' => [
+                        [
+                            'url' => $specialBaseUrl . '/*/edit',
+                            'method' => $getMethod,
+                        ],
+                        [
+                            'url' => $specialBaseUrl . '/*',
+                            'method' => $putMethod,
+                        ],
+                    ],
+                ],
+                [
+                    'name' => 'Delete Special',
+                    'route' => [
+                        'url' => $specialBaseUrl . '/*',
                         'method' => $deleteMethod,
                     ],
                 ],
