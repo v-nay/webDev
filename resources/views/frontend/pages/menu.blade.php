@@ -19,6 +19,8 @@
   <section class="menu-section">
     <h2 class="section-title">Discover Our Offerings</h2>
     <div class="menu-gallery">
+    
+    @if($offerings->isEmpty())
       <article class="menu-item" data-category="appetizers">
         <img src="images/appetizers.jpg" alt="Appetizers" />
         <h3>Appetizers</h3>
@@ -39,6 +41,15 @@
         <h3>Beverages</h3>
         <p>A selection of refreshing drinks to pair with your meal.</p>
       </article>
+      @else
+      @foreach ($offerings as $offering )
+      <article class="menu-item" data-category="appetizers">
+      <img src="{{ $offering->img ? asset('uploads/offering/' . $offering->img) : asset('images/appetizers.jpg') }}" alt="Appetizers">
+        <h3>{{$offering->name}}Appetizers</h3>
+        <p>{{$offering ->desc}}A wonderful start to your gourmet journey.</p>
+      </article>
+      @endforeach
+      @endif
     </div>
   </section>
   <!-- dynamic menu details section -->

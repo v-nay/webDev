@@ -36,7 +36,7 @@ function getCmsConfig($label)
     } elseif ($label == 'cms theme color') {
         $con = 'color';
     }
-    $data = Cookie::get($con);
+    $data = Cookie::get($con ?? '');
     if (isset($data) || $data !== null) {
         $value = $data;
     } else {
@@ -88,6 +88,21 @@ function setConfigCookie()
         conf::where('label', 'cms theme color')->first()->value,
         10000
     );
+    // Cookie::queue(
+    //     'facebook',
+    //     conf::where('label', 'facebook')->first()->value,
+    //     10000
+    // );
+    // Cookie::queue(
+    //     'instagram',
+    //     conf::where('label', 'instagram')->first()->value,
+    //     10000
+    // );
+    // Cookie::queue(
+    //     'twitter',
+    //     conf::where('label', 'twitter')->first()->value,
+    //     10000
+    // );
 }
 
 function localDatetime($dateTime)

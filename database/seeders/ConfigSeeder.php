@@ -39,7 +39,6 @@ class ConfigSeeder extends Seeder
                 'value' => 'KOI',
             ]);
         }
-
         $settings3 = Config::where('id', 3)->first();
         if (!isset($settings3)) {
             Config::create([
@@ -48,5 +47,39 @@ class ConfigSeeder extends Seeder
                 'value' => '#292961',
             ]);
         }
+
+        $settings4 = Config::where('id', 4)->first();
+        if (!isset($settings4)) {
+            Config::create([
+                'label' => 'facebook',
+                'type' => 'text',
+                'value' => 'www.facebook.com',
+            ]);
+        }
+        $settings5 = Config::where('id', 5)->first();
+        if (!isset($settings5)) {
+            Config::create([
+                'label' => 'instagram',
+                'type' => 'text',
+                'value' => 'www.instagram.com',
+            ]);
+        }
+        $settings6 = Config::where('id', 6)->first();
+        if (!isset($settings6)) {
+            Config::create([
+                'label' => 'x',
+                'type' => 'text',
+                'value' => 'www.x.com',
+            ]);
+        }
+        $settings7 = Config::where('id', 7)->first();
+        if (!isset($settings7)) {
+            Config::create([
+                'label' => 'youtube',
+                'type' => 'text',
+                'value' => 'www.youtube.com',
+            ]);
+        }
+        
     }
 }
